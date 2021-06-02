@@ -45,30 +45,20 @@ def wallis(n):
 	
 	return p
 
-def dist(x,y):
-	a = sq(x)
-	b = sq(y)
-	
-	d = math.sqrt(a+b) 
-	return d
-
-def monte_carlo(n) :
-	
+def monte_carlo(n):
 	count = 0
-	
-	for i in range (0,n) :
-		
+	for i in range (0,n):
 		x = random.random()
 		y = random.random()
-		
-		d = dist(x,y)
-		
-		if d < 1 :
-			count += 1
-		r = count/n
-		r *= 4
-		return r	
-
-    
+		x = x**2
+		y = y**2
+		d = math.sqrt(x+y)
+		if d < 1:
+			count = count + 1
+	r = (count / n)
+	ans = 4 * r
+	return ans
+	
+	
 if __name__ == "__main__":
     unittest.main()
